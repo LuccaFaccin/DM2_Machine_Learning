@@ -221,3 +221,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Données générées
+data/
+results/models/
+
+# Fichiers temporaires Jupyter
+.ipynb_checkpoints/
