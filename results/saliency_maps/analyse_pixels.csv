@@ -1,0 +1,7 @@
+modele,estimateurs_effectifs,pixels_distincts,pourcentage_pixels,frequence_maximale
+3_vs_8_stump_10,10,10,1.2755102040816326,1.0
+3_vs_8_stump_50,50,37,4.719387755102041,4.0
+3_vs_8_stump_100,100,64,8.16326530612245,7.0
+0_4_vs_5_9_stump_10,10,10,1.2755102040816326,1.0
+0_4_vs_5_9_stump_50,50,32,4.081632653061225,4.0
+0_4_vs_5_9_stump_100,100,40,5.1020408163265305,11.0
