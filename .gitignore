@@ -226,5 +226,8 @@ __marimo__/
 data/
 results/models/
 
+# Environnement virtuel
+.venv/
+
 # Fichiers temporaires Jupyter
 .ipynb_checkpoints/
