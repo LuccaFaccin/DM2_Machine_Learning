@@ -57,6 +57,37 @@ Les résultats sont enregistrés dans `results/resultats_adaboost.csv`.
 
 Des graphiques permettent de comparer l'évolution des performances en fonction du nombre d'estimateurs et du classifieur utilisé.
 
+### Résultats expérimentaux — AdaBoost
+
+Les 24 configurations ont été exécutées avec succès.
+
+Les meilleures performances sont obtenues avec des arbres de décision de profondeur 8 et 100 estimateurs.
+
+| Classifieur | Accuracy 3 vs 8 | Accuracy 0–4 vs 5–9 |
+|---|---:|---:|
+| Decision stump | 95,53 % | 81,49 % |
+| Arbre — profondeur 3 | 99,07 % | 93,36 % |
+| **Arbre — profondeur 8** | **99,28 %** | **98,01 %** |
+| Perceptron | 94,99 % | 83,33 % |
+
+*Résultats correspondant à 100 estimateurs demandés. Pour le perceptron, l'entraînement s'est arrêté après 8 et 7 estimateurs respectivement.*
+
+Les arbres de profondeur 8 présentent les meilleures performances, mais nécessitent également davantage de temps de calcul.
+
+Les résultats montrent que l'augmentation du nombre d'estimateurs améliore généralement les performances des arbres de décision, avec des gains qui tendent à diminuer.
+
+#### Évolution des performances
+
+**Classification 3 contre 8**
+
+![Performances AdaBoost — 3 vs 8](results/accuracy_3_vs_8.png)
+
+**Classification 0–4 contre 5–9**
+
+![Performances AdaBoost — 0–4 vs 5–9](results/accuracy_0_4_vs_5_9.png)
+
+Les résultats détaillés, incluant les matrices de confusion et les temps d'entraînement, sont disponibles dans le notebook `02_adaboost.ipynb` et le fichier `results/resultats_adaboost.csv`.
+
 ## 3. Exercice 2 — Cartes de saillance
 
 Nous étudions les pixels utilisés par les *decision stumps* entraînés avec AdaBoost.
@@ -89,6 +120,24 @@ Ces cartes permettent d'étudier la répartition spatiale des caractéristiques 
 Les résultats montrent que les modèles réutilisent certains pixels et que les cartes restent relativement clairsemées, même avec 100 estimateurs.
 
 Les cartes pondérées apportent une information complémentaire en tenant compte de la contribution des différents stumps.
+
+### Visualisation des cartes de saillance
+
+Les cartes suivantes permettent de comparer les pixels sélectionnés par les decision stumps avec 10, 50 et 100 estimateurs.
+
+**Classification 3 contre 8**
+
+![Cartes de saillance — 3 vs 8](results/saliency_maps/comparaison_3_vs_8.png)
+
+**Classification 0–4 contre 5–9**
+
+![Cartes de saillance — 0–4 vs 5–9](results/saliency_maps/comparaison_0_4_vs_5_9.png)
+
+Les cartes de fréquence montrent combien de fois chaque pixel a été sélectionné. Les cartes pondérées prennent également en compte les poids des estimateurs AdaBoost.
+
+Les résultats montrent qu'avec 100 estimateurs, seulement 64 pixels distincts sont sélectionnés pour la classification 3 contre 8, contre 40 pixels pour la classification 0–4 contre 5–9.
+
+Cela met en évidence la réutilisation de certaines caractéristiques et la concentration des décisions sur un nombre limité de pixels.
 
 ## 4. Organisation du projet
 
